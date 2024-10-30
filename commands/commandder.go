@@ -2,13 +2,14 @@ package commands
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"os"
+
+	"github.com/spf13/cobra"
 )
 
 var (
 	env     string
-	version = "1.0.3"
+	version = "1.0.32"
 )
 
 func Execute(args []string) error {

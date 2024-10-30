@@ -28,10 +28,12 @@ jobs:
       - name: Get Manuscript CLI Version
         run:
           MANUSCRIPT_CLI_VERSION=$(go run main.go version | tr -s ' ' | awk '{print $NF}')
+          echo $MANUSCRIPT_CLI_VERSION
           echo "MANUSCRIPT_CLI_VERSION=$MANUSCRIPT_CLI_VERSION" >> $GITHUB_ENV
       - name: Get Git Tag Version
         run:
           Git_TAG_VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          echo $Git_TAG_VERSION
           echo "Git_TAG_VERSION=$Git_TAG_VERSION" >> $GITHUB_ENV
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
